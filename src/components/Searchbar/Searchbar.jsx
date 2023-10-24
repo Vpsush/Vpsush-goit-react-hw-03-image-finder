@@ -6,7 +6,13 @@ class Searchbar extends Component {
     value: '',
   };
 
-  handleChange = ({ target: { value } }) => {
+  handleChange = e => {
+    // this.setState({ value });
+
+    // this.setState({ value: e.target.value });
+
+    const { target } = e;
+    const { value } = target;
     this.setState({ value });
   };
 
@@ -26,7 +32,7 @@ class Searchbar extends Component {
             autofocus
             aria-label="search"
             placeholder="Search images and photos"
-            onChange={this.onChange}
+            onChange={this.handleChange}
             value={this.state.value}
           />
 

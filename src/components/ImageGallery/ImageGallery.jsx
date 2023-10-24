@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import css from './ImageGallery.module.css';
 // import React, { Component } from "react";
 // import axios from 'axios';
@@ -12,16 +13,24 @@ import css from './ImageGallery.module.css';
 //   per_page: 40,
 // };
 
-const ImageGallery = images => {
-  return (
-    <ul className={css.gallery}>
-      {images.map(() => (
-        <li class={css.galleryItem}>
-          <img src="" alt="" />
-        </li>
-      ))}
-    </ul>
-  );
-};
+class ImageGallery extends Component {
+  state = {};
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.imageKey !== this.props.imageKey) {
+      // fetch()
+    }
+  }
+  render() {
+    return (
+      <ul className={css.gallery}>
+        {/* {images.map(() => (
+          <li class={css.galleryItem}>
+            <img src="" alt="" />
+          </li>
+        ))} */}
+      </ul>
+    );
+  }
+}
 
 export default ImageGallery;

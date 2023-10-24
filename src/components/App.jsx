@@ -1,14 +1,14 @@
 import { Component } from 'react';
 // import axios from 'axios';
-// import Searchbar from './Searchbar/Searchbar';
-// import ImageGallery from './ImageGallery/ImageGallery';
+import Searchbar from './Searchbar/Searchbar';
+import ImageGallery from './ImageGallery/ImageGallery';
 import Modal from './Modal/Modal';
 // import Searchbar from './Searchbar/Searchbar';
 // import Searchbar from './Searchbar/Searchbar';
 
 export class App extends Component {
   state = {
-    images: [],
+    // images: [],
     isOpenModal: false,
     modalData: null,
   };
@@ -32,11 +32,11 @@ export class App extends Component {
     return (
       <div>
         {/* <ImageGallery openModal={this.openModal} /> */}
-        {/* <Searchbar /> */}
-        <Modal
+        <Searchbar />
+        {/* <Modal
         // closeModal={this.closeModal}
         // modalData={this.state.modalData}
-        />
+        /> */}
       </div>
     );
   }

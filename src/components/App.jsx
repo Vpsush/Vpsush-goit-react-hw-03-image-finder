@@ -1,8 +1,8 @@
 import { Component } from 'react';
 // import axios from 'axios';
 import Searchbar from './Searchbar/Searchbar';
-import ImageGallery from './ImageGallery/ImageGallery';
-import Modal from './Modal/Modal';
+// import ImageGallery from './ImageGallery/ImageGallery';
+// import Modal from './ModalModal';
 // import Searchbar from './Searchbar/Searchbar';
 // import Searchbar from './Searchbar/Searchbar';
 

@@ -18,7 +18,8 @@ class Searchbar extends Component {
 
   handleSubmit = e => {
     e.preventDefault(this.state);
-    console.log(this.state);
+    // console.log(this.state);
+    this.props.handleSearch(this.state.value);
   };
 
   render() {
@@ -28,8 +29,8 @@ class Searchbar extends Component {
           <input
             className={css.input}
             type="text"
-            autocomplete="off"
-            autofocus
+            // autocomplete="off"
+            // autofocus
             aria-label="search"
             placeholder="Search images and photos"
             onChange={this.handleChange}

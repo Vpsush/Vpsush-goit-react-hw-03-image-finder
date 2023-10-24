@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import css from './ImageGallery.module.css';
+import { getImage } from '../../services/getImagen';
 // import React, { Component } from "react";
 // import axios from 'axios';
 
@@ -17,7 +18,8 @@ class ImageGallery extends Component {
   state = {};
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.imageKey !== this.props.imageKey) {
-      // fetch()
+      getImage();
+      console.log(this.props);
     }
   }
   render() {

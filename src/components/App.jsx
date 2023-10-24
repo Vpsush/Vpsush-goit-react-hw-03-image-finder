@@ -1,7 +1,7 @@
 import { Component } from 'react';
 // import axios from 'axios';
 import Searchbar from './Searchbar/Searchbar';
-// import ImageGallery from './ImageGallery/ImageGallery';
+import ImageGallery from './ImageGallery/ImageGallery';
 // import Modal from './ModalModal';
 // import Searchbar from './Searchbar/Searchbar';
 // import Searchbar from './Searchbar/Searchbar';
@@ -11,6 +11,7 @@ export class App extends Component {
     // images: [],
     isOpenModal: false,
     modalData: null,
+    imageKey: '',
   };
 
   openModal = someDataToModal => {
@@ -27,12 +28,19 @@ export class App extends Component {
     });
   };
 
+  handleSearch = imageKey => {
+    this.setState({ imageKey });
+  };
+
   render() {
     // const { images } = this.state;
     return (
       <div>
-        {/* <ImageGallery openModal={this.openModal} /> */}
-        <Searchbar />
+        <ImageGallery
+          imageKey={this.state.imageKey}
+          // openModal={this.openModal}
+        />
+        <Searchbar handleSearch={this.handleSearch} />
         {/* <Modal
         // closeModal={this.closeModal}
         // modalData={this.state.modalData}

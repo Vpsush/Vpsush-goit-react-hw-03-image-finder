@@ -3,7 +3,7 @@ import { Component } from 'react';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 // import Modal from './ModalModal';
-// import Searchbar from './Searchbar/Searchbar';
+import Loader from './Loader/Loader';
 // import Searchbar from './Searchbar/Searchbar';
 
 export class App extends Component {
@@ -12,6 +12,8 @@ export class App extends Component {
     isOpenModal: false,
     modalData: null,
     imageKey: '',
+    isLoading: false,
+    error: null,
   };
 
   openModal = someDataToModal => {
@@ -36,15 +38,23 @@ export class App extends Component {
     // const { images } = this.state;
     return (
       <div>
-        <ImageGallery
-          imageKey={this.state.imageKey}
-          // openModal={this.openModal}
-        />
-        <Searchbar handleSearch={this.handleSearch} />
-        {/* <Modal
+        {this.state.error !== null && (
+          <p className="error-bage">
+            Oops, some error done... Error message: {this.state.error}
+          </p>
+        )}
+        <div>{this.state.isLoading && <Loader />}</div>
+        <div>
+          <ImageGallery
+            imageKey={this.state.imageKey}
+            // openModal={this.openModal}
+          />
+          <Searchbar handleSearch={this.handleSearch} />
+          {/* <Modal
         // closeModal={this.closeModal}
         // modalData={this.state.modalData}
         /> */}
+        </div>
       </div>
     );
   }

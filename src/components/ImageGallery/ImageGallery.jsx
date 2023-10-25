@@ -1,37 +1,30 @@
 import { Component } from 'react';
 import css from './ImageGallery.module.css';
-import { getImage } from '../../services/getImagen';
+import fetchImages from '../../services/fetchImages';
+
 // import React, { Component } from "react";
 // import axios from 'axios';
 
 // axios.defaults.baseURL = 'https://hn.algolia.com/api/v1';
 
-// axios.defaults.params = {
-//   key: '39094662-f0479bb8b89274a4b188f6f08',
-//   image_type: 'photo',
-//   orientation: 'horizontal',
-//   safesearch: true,
-//   per_page: 40,
-// };
-
 class ImageGallery extends Component {
   state = {};
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.imageKey !== this.props.imageKey) {
-      getImage();
+      fetchImages();
       console.log(this.props);
     }
   }
   render() {
-    return (
+    return images => {
       <ul className={css.gallery}>
-        {/* {images.map(() => (
-          <li class={css.galleryItem}>
+        {images.map(() => (
+          <li key={images.id} class={css.galleryItem}>
             <img src="" alt="" />
           </li>
-        ))} */}
-      </ul>
-    );
+        ))}
+      </ul>;
+    };
   }
 }
 

@@ -1,29 +1,30 @@
-// import axios from 'axios';
-// const API_KEY = '39094662-f0479bb8b89274a4b188f6f08';
-// axios.defaults.BASE_URL = 'https://pixabay.com/api/';
-// const fetchImages = async ({ query, page }) => {
-//   try {
-//     this.setState({
-//       isLoading: true,
-//     });
-//     const { data } = await axios.get(
-//       `/?q=${query}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
-//     );
+import axios from 'axios';
+const API_KEY = '39094662-f0479bb8b89274a4b188f6f08';
+axios.defaults.BASE_URL = 'https://pixabay.com/api/';
 
-//     this.setState({
-//       posts: data,
-//     });
-//     return data;
-//   } catch (error) {
-//     this.setState({ error: error.message });
-//   } finally {
-//     this.setState({
-//       isLoading: false,
-//     });
-//   }
-// };
+const fetchImages = async ({ query, page }) => {
+  try {
+    this.setState({
+      isLoading: true,
+    });
+    const { data } = await axios.get(
+      `/?q=${query}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
+    );
 
-// export default fetchImages;
+    this.setState({
+      posts: data,
+    });
+    return data;
+  } catch (error) {
+    this.setState({ error: error.message });
+  } finally {
+    this.setState({
+      isLoading: false,
+    });
+  }
+};
+
+export default fetchImages;
 
 // export default class apiImages {
 //   constructor() {

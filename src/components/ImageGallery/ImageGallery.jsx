@@ -1,11 +1,6 @@
 import { Component } from 'react';
 import css from './ImageGallery.module.css';
-import { fetchImages } from '../../services/fetchImages';
-
-// import React, { Component } from "react";
-// import axios from 'axios';
-
-// axios.defaults.baseURL = 'https://hn.algolia.com/api/v1';
+import fetchImages from '../../services/fetchImages';
 
 class ImageGallery extends Component {
   state = {};

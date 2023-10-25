@@ -12,9 +12,9 @@ class ImageGallery extends Component {
   }
   render() {
     return images => {
-      const {
-        items: { webformatURL, tags },
-      } = this.props;
+      // const {
+      //   items: { webformatURL, tags },
+      // } = this.props;
       <ul className={css.gallery}>
         {images.map(() => (
           <li key={images.id} class={css.galleryItem}>

@@ -21,7 +21,7 @@ axios.defaults.params = {
 
 //     .then(img => console.log(img));
 // };
-fetchImages = async () => {
+export const fetchImages = async () => {
   try {
     this.setState({
       isLoading: true,
@@ -41,4 +41,4 @@ fetchImages = async () => {
   }
 };
 
-export default { fetchImages };
+// export default fetchImages;

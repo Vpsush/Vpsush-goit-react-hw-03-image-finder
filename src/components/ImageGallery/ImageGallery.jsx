@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import css from './ImageGallery.module.css';
-import fetchImages from '../../services/fetchImages';
+import { fetchImages } from '../../services/fetchImages';
 
 // import React, { Component } from "react";
 // import axios from 'axios';
@@ -17,10 +17,13 @@ class ImageGallery extends Component {
   }
   render() {
     return images => {
+      const {
+        items: { webformatURL, tags },
+      } = this.props;
       <ul className={css.gallery}>
         {images.map(() => (
           <li key={images.id} class={css.galleryItem}>
-            <img src="" alt="" />
+            <img src="{webformatURL}" alt="{tags}" />
           </li>
         ))}
       </ul>;

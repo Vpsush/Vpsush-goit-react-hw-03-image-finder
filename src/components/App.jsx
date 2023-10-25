@@ -1,5 +1,5 @@
 import { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 // import Modal from './ModalModal';
@@ -34,6 +34,30 @@ export class App extends Component {
     this.setState({ imageKey });
   };
 
+  fetchImages = async () => {
+    try {
+      this.setState({
+        isLoading: true,
+      });
+      const { data } = await axios.get('https://pixabay.com/api/');
+
+      this.setState({
+        posts: data,
+      });
+      return data;
+    } catch (error) {
+      this.setState({ error: error.message });
+    } finally {
+      this.setState({
+        isLoading: false,
+      });
+    }
+  };
+
+  componentDidMount() {
+    this.fetchImages();
+  }
+
   render() {
     // const { images } = this.state;
     return (
@@ -51,6 +75,8 @@ export class App extends Component {
           />
           <Searchbar handleSearch={this.handleSearch} />
           {/* <Modal
+          largeImageURL={largeImageURL}
+            alt={tags}
         // closeModal={this.closeModal}
         // modalData={this.state.modalData}
         /> */}

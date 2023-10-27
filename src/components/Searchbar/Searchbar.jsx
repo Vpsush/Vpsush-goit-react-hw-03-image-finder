@@ -1,5 +1,6 @@
 import css from './Searchbar.module.css';
-import { Component } from 'react';
+
+import React, { Component } from 'react';
 
 class Searchbar extends Component {
   state = {
@@ -7,39 +8,33 @@ class Searchbar extends Component {
   };
 
   handleChange = e => {
-    // this.setState({ value });
-
-    // this.setState({ value: e.target.value });
-
-    const { target } = e;
-    const { value } = target;
-    this.setState({ value });
+    this.setState({ value: e.target.value });
   };
 
   handleSubmit = e => {
-    e.preventDefault(this.state);
-    // console.log(this.state);
+    e.preventDefault();
     this.props.handleSearch(this.state.value);
   };
 
   render() {
     return (
       <header className={css.searchbar}>
-        <form className={css.form} onSubmit={this.handleSubmit}>
+        <form className={css.SearchForm} onSubmit={this.handleSubmit}>
+          <button type="submit" className={css.SearchFormButton}>
+            <span className={css.SearchFormButtonLabel}>
+              {/* Search */}
+              <svg className={css.icon}>
+                <use href="../../services/symbol-defs.svg#icon-search"></use>
+              </svg>
+            </span>
+          </button>
           <input
-            className={css.input}
+            className={css.SearchFormInput}
             type="text"
-            // autocomplete="off"
-            // autofocus
-            aria-label="search"
             placeholder="Search images and photos"
             onChange={this.handleChange}
             value={this.state.value}
           />
-
-          <button type="submit" className={css.button}>
-            <span className={css.buttonLabel}>Search</span>
-          </button>
         </form>
       </header>
     );

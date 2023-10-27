@@ -1,29 +1,96 @@
-import { Component } from 'react';
-import css from './ImageGallery.module.css';
-import fetchImages from '../../services/fetchImages';
+// import { Component } from 'react';
+// import css from './ImageGallery.module.css';
+// import fetchImages from 'services/fetchImages';
 
-class ImageGallery extends Component {
-  state = {};
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.imageKey !== this.props.imageKey) {
-      fetchImages();
-      console.log(this.props);
-    }
-  }
-  render() {
-    return images => {
-      // const {
-      //   items: { webformatURL, tags },
-      // } = this.props;
-      <ul className={css.gallery}>
-        {images.map(() => (
-          <li key={images.id} class={css.galleryItem}>
-            <img src="{webformatURL}" alt="{tags}" />
-          </li>
-        ))}
-      </ul>;
-    };
-  }
-}
+// class ImageGallery extends Component {
+//   state = {};
+
+//   render() {
+//     fetchImages();
+//     return (
+//       <ul className={css.gallery}>
+//         <li></li>
+//       </ul>
+//     );
+//   }
+// }
+
+// export default ImageGallery;
+
+// import React from 'react';
+// import css from './ImageGallery.module.css';
+
+// function ImageGallery({ images }) {
+//   return (
+//     <ul className={css.gallery}>
+//       {images.map(image => (
+//         <li key={image.id} className={css.galleryItem}>
+//           <img src={image.webformatURL} alt={image.tags} />
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
+
+// export default ImageGallery;
+
+// import React, { Component } from 'react';
+// import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
+// import css from './ImageGallery.module.css';
+
+// const ImageGallery = ({ images, openModal }) => {
+//   return (
+//     <ul className={css.ImageGallery}>
+//       {images.map(image => (
+//         <li key={image.id} className={css.imageGalleryItem}>
+//           <img
+//             src={image.webformatURL}
+//             alt={image.tags}
+//             onClick={() => openModal(image.largeImageURL)}
+//             width="400px"
+//             height="300px"
+//             className={css.imageGalleryItemImage}
+//           />
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// };
+
+import React from 'react';
+import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem'; // Import the new component
+import css from './ImageGallery.module.css';
+
+const ImageGallery = ({ images, openModal }) => {
+  return (
+    <ul className={css.ImageGallery}>
+      {images.map(image => (
+        <ImageGalleryItem key={image.id} image={image} openModal={openModal} />
+      ))}
+    </ul>
+  );
+};
+
+// class ImageGallery extends Component {
+//   // state = {
+//   //   images: '',
+//   // };
+//   render() {
+//     return (
+//       <ul className={css.gallery}>
+//         {this.images.map(image => (
+//           <li key={image.id} className={css.galleryItem}>
+//             {/* Make the image clickable and open the modal */}
+//             <img
+//               src={image.webformatURL}
+//               alt={image.tags}
+//               onClick={() => this.openModal(image.largeImageURL)} // Open the modal with the large image URL
+//             />
+//           </li>
+//         ))}
+//       </ul>
+//     );
+//   }
+// }
 
 export default ImageGallery;

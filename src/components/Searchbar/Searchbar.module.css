@@ -34,7 +34,8 @@
   width: 48px;
   height: 48px;
   border: 0;
-  background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
+
+  /* background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg'); */
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
@@ -44,8 +45,46 @@
   outline: none;
   /* background-color: black; */
 }
-.icon {
+/* .icon {
   fill: black;
+} */
+
+.Button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  line-height: 1;
+}
+
+.Button:hover {
+  background-color: #0056b3;
+}
+
+.Button:active {
+  background-color: #00367f;
+}
+
+.Button:focus {
+  outline: none;
+}
+
+.Button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Use the search lens dingbat for the "Load more" text */
+.Button::before {
+  content: '\1F50E';
+  margin-right: 8px; /* Adjust the spacing if needed */
 }
 
 .SearchFormButton:hover {

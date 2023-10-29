@@ -71,26 +71,4 @@ const ImageGallery = ({ images, openModal }) => {
   );
 };
 
-// class ImageGallery extends Component {
-//   // state = {
-//   //   images: '',
-//   // };
-//   render() {
-//     return (
-//       <ul className={css.gallery}>
-//         {this.images.map(image => (
-//           <li key={image.id} className={css.galleryItem}>
-//             {/* Make the image clickable and open the modal */}
-//             <img
-//               src={image.webformatURL}
-//               alt={image.tags}
-//               onClick={() => this.openModal(image.largeImageURL)} // Open the modal with the large image URL
-//             />
-//           </li>
-//         ))}
-//       </ul>
-//     );
-//   }
-// }
-
 export default ImageGallery;

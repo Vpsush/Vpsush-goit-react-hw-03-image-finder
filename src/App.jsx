@@ -19,15 +19,24 @@ class App extends Component {
     hasMoreImages: true, // Initialize it as true
   };
 
-  componentDidUpdate(_, prevState) {
-    if (this.state.query !== prevState.query) {
-      this.setState({ page: 1, images: [], isLoading: false });
-      if (this.state.page === 1) {
-        this.fetchImagesInternal(this.state.query, this.state.page);
-      }
-    }
+  // componentDidUpdate(_, prevState) {
+  //   if (this.state.query !== prevState.query) {
+  //     this.setState({ page: 1, images: [], isLoading: false });
+  //     if (this.state.page === 1) {
+  //       this.fetchImagesInternal(this.state.query, this.state.page);
+  //     }
+  //   }
 
-    if (this.state.page !== prevState.page) {
+  //   if (this.state.page !== prevState.page) {
+  //     this.fetchImagesInternal(this.state.query, this.state.page);
+  //   }
+  // }
+
+  componentDidUpdate(_, prevState) {
+    if (
+      this.state.query !== prevState.query ||
+      this.state.page !== prevState.page
+    ) {
       this.fetchImagesInternal(this.state.query, this.state.page);
     }
   }
